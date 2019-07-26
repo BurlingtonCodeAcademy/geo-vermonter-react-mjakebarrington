@@ -1,20 +1,34 @@
-
 .grid-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    grid-template-areas: ". North . ." "West Button East ." ". South . .";
-    width: 100px;
-    margin: auto;
-    font-size: 45px;
-  }
-  
-  .North { grid-area: North; }
-  
-  .South { grid-area: South; }
-  
-  .East { grid-area: East; }
-  
-  .West { grid-area: West; }
-  
-  .Button { grid-area: Button; }
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: ". North . ." "West Button East ." ". South . .";
+  width: 100px;
+  margin: auto;
+  font-size: 45px;
+  text-align: center;
+}
+
+.North {
+  grid-area: North;
+  color: green;
+}
+
+.South {
+  grid-area: South;
+  color: rebeccapurple;
+}
+
+.East {
+  grid-area: East;
+  color: darksalmon
+}
+
+.West {
+  grid-area: West;
+  color: darkgoldenrod;
+}
+
+.Button {
+  grid-area: Button;
+}
