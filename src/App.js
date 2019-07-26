@@ -1,9 +1,16 @@
-import React from "react";
-import "./App.css";
-import Leaflet from "./leaflet";
+import React from 'react';
+import './App.css';
+import L from 'leaflet';
+import Map from './components/Map'
+import Controls from './components/Controls'
 
 function App() {
-  return <Leaflet />;
+  return (
+    <div>
+    <Map/>
+    <Controls/>
+    </div>
+  );
 }
 
 export default App;
