@@ -9,27 +9,47 @@ class Map extends React.Component {
     this.state = {
       gamestarted: false,
       lat: 44.4759406,
-      lon: -73.2123868,
-    }
+      lon: -73.2123868
+    };
+    this.moveNorth = this.moveNorth.bind(this);
+  }
+
+  moveNorth() {
+    this.setState({
+      lat: this.state.lat += 0.0000100,
+    })
   }
 
   componentDidMount() {
-    let map = L.map('map').setView([this.state.lat, this.state.lon], 18);
-    L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-      attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-    }).addTo(map);
+    let map = L.map("map").setView([this.state.lat, this.state.lon], 18);
+    L.tileLayer(
+      "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+      {
+        attribution:
+          "Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community"
+      }
+    ).addTo(map);
   }
 
   render() {
     return (
-      <div id="map">
+      <div>
+        <br/>
+        <br/>
+        <div id="map" />
+        <div id="Controls" class="grid-container">
+          <div id="North" class="North">
+            N
+          </div>
+          <div class="South" onClick={this.props.moveNorth}>S</div>
+          <div class="East">E</div>
+          <div class="West">W</div>
+          <div class="Button"> </div>
+        </div>
       </div>
     );
   }
-  
 }
-
-
 
 // // class Map extends React.Component {
 //   componentDidMount(props) {
@@ -68,7 +88,6 @@ class Map extends React.Component {
 //     this.moveEast = this.moveEast.bind(this);
 //     this.moveWest = this.moveWest.bind(this);
 //   }
-  
 
 // start() {
 //   // Start the game
@@ -112,15 +131,7 @@ class Map extends React.Component {
 //         <br />
 //         <br />
 //         <div id="map"></div>
-//         <div id="Controls" class="grid-container">
-//           <div id="North" class="North">
-//             N
-//           </div>
-//           <div class="South" onClick={this.moveNorth}>S</div>
-//           <div class="East">E</div>
-//           <div class="West">W</div>
-//           <div class="Button"> </div>
-//         </div>
+
 //       </div>
 //     );
 //   }
