@@ -7,17 +7,18 @@ class Map extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      gamestarted: false,
+      gamestarted: null,
       lat: 44.4759406,
-      lon: -73.2123868
-    };
-    this.moveNorth = this.moveNorth.bind(this);
+      lon: -73.2123868,
+    }
+    this.moveSouth = this.moveSouth.bind(this);
+    ;
   }
 
-  moveNorth() {
-    this.setState({
-      lat: this.state.lat += 0.0000100,
-    })
+  moveSouth() {
+    this.setState(state => ({
+      lat: 0
+    }));
   }
 
   componentDidMount() {
@@ -34,16 +35,22 @@ class Map extends React.Component {
   render() {
     return (
       <div>
-        <br/>
-        <br/>
+        <br />
+        <br />
         <div id="map" />
         <div id="Controls" class="grid-container">
-          <div id="North" class="North">
+          <div id="North" class="North" onClick={() => this.moveNorth}>
             N
           </div>
-          <div class="South" onClick={this.props.moveNorth}>S</div>
-          <div class="East">E</div>
-          <div class="West">W</div>
+          <div class="South" onClick={() => this.moveSouth}>
+            S
+          </div>
+          <div class="East" onClick={() => this.moveEast}>
+            E
+          </div>
+          <div class="West" onClick={() => this.moveWest}>
+            W
+          </div>
           <div class="Button"> </div>
         </div>
       </div>
